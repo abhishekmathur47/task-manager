@@ -1,0 +1,103 @@
+/* src/components/TaskCard.css */
+
+.task-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid; /* Will be overridden by status-specific border-left */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease-in-out;
+}
+
+.task-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Border colors based on status */
+.task-card.pending {
+    border-left-color: #ffc107;
+}
+.task-card.in-progress {
+    border-left-color: #17a2b8;
+}
+.task-card.completed {
+    border-left-color: #28a745;
+}
+
+.task-title {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.3rem;
+    word-break: break-word;
+}
+
+.task-description {
+    color: #666;
+    font-size: 0.95rem;
+    flex-grow: 1; /* Allows description to take available space */
+    margin-bottom: 1rem;
+    word-break: break-word;
+}
+
+.task-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.task-status-badge {
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Status badge colors */
+.task-status-badge.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+.task-status-badge.in-progress {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+.task-status-badge.completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.task-actions button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.task-actions .edit-btn {
+    background-color: #007bff;
+    color: white;
+}
+.task-actions .edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.task-actions .delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+.task-actions .delete-btn:hover {
+    background-color: #bd2130;
+}

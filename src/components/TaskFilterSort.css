@@ -1,0 +1,35 @@
+/* src/components/TaskFilterSort.css */
+
+.filter-sort-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: flex-end; /* Align to the right */
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .filter-sort-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+.select-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.select-wrapper label {
+    font-weight: bold;
+    color: #555;
+}
+
+.select-wrapper select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    min-width: 120px;
+}
