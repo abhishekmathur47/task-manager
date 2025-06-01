@@ -1,53 +1,62 @@
 /* src/views/Dashboard.css */
 
 .dashboard-container {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex; /* Changed to flex for Kanban layout */
-    flex-direction: column;
-    gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Changed to flex for Kanban layout */
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 @media (max-width: 768px) {
-    .dashboard-container {
-        padding: 1rem;
-        margin: 1rem;
-    }
+  .dashboard-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
 }
 
 .add-task-button {
-    width: fit-content;
-    margin-top: 1rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
-    align-self: flex-end;
+  width: fit-content;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  align-self: flex-end;
+  border-radius: 16px;
+  background-color: #B4D8F7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
 }
 
 /* Kanban Board Styles */
 .kanban-board {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
+  display: flex;
+  gap: 1rem;
+  /* background-color: red; */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
 }
 
 .kanban-column {
-    background-color: #f0f4f8;
-    border-radius: 8px;
-    padding: 1rem;
-    width: 300px; /* Fixed width for columns */
-    flex-shrink: 0; /* Prevent columns from shrinking */
+  border:1px solid #D9D9D9;
+  /* background-color: #f8f8f8; */
+  border-radius: 8px;
+  padding: 1rem;
+  width: 353px; /* Fixed width for columns */
+  flex-shrink: 0; /* Prevent columns from shrinking */
 }
 
 .kanban-column h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    color: #333;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+  border-bottom: 1px solid #D9D9D9;
+  padding-bottom: 1.3rem;
 }
 
-.kanban-column .task-card { /* Target TaskCard within Kanban column */
-    margin-bottom: 0.5rem;
+.kanban-column .task-card {
+  /* Target TaskCard within Kanban column */
+  margin-bottom: 0.5rem;
 }
