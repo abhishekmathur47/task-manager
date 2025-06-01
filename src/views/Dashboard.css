@@ -19,16 +19,25 @@
   }
 }
 
+.filter-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .add-task-button {
   width: fit-content;
-  margin-top: 1rem;
   padding: 0.8rem 1.5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   align-self: flex-end;
   border-radius: 16px;
   background-color: #B4D8F7;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: none;
+}
+.add-task-button:hover {
+  background-color: #406CBD;
+  color: white;
 }
 
 /* Kanban Board Styles */
@@ -52,8 +61,6 @@
   margin-top: 0;
   margin-bottom: 1rem;
   color: #333;
-  border-bottom: 1px solid #D9D9D9;
-  padding-bottom: 1.3rem;
 }
 
 .kanban-column .task-card {

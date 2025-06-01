@@ -85,13 +85,15 @@ function Dashboard() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="dashboard-container">
         <TaskSummary tasks={tasks} />
-        <button className="add-task-button" onClick={openAddModal}>+ Add New Task</button>
-        <TaskFilterSort
-          onFilterChange={setFilterStatus}
-          onSortChange={setSortOrder}
-          currentFilter={filterStatus}
-          currentSort={sortOrder}
-        />
+        <div className="filter-section">
+          <TaskFilterSort
+            onFilterChange={setFilterStatus}
+            onSortChange={setSortOrder}
+            currentFilter={filterStatus}
+            currentSort={sortOrder}
+          />
+          <button className="add-task-button" onClick={openAddModal}>+ Add New Task</button>
+        </div>
 
         <div className="kanban-board">
           {STATUS_COLUMNS.map(status => (
@@ -102,7 +104,7 @@ function Dashboard() {
                   ref={provided.innerRef}
                   {...provided.droppableProps}
                 >
-                  <h3>{status}</h3>
+                  <h3 style={{ borderBottom: '1px solid #D9D9D9', paddingBottom: '1.3rem' }}>{status}</h3>
                   {groupedTasks[status].map((task, index) => (
                     <Draggable
                       key={task.id}

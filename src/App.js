@@ -9,11 +9,11 @@ function App() {
     return (
         <TaskProvider>
             <Router>
-                <header className="app-header">
+                <header className="main-header">
                     <h1>Task Management Dashboard</h1>
-                    <nav>
-                        <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""}>All Tasks</NavLink>
-                        <NavLink to="/completed" className={({ isActive }) => isActive ? "active" : ""}>Completed Tasks</NavLink>
+                    <nav className='navigation-routes'>
+                        <NavLink to="/">All Tasks</NavLink>
+                        <NavLink to="/completed">Completed Tasks</NavLink>
                     </nav>
                 </header>
                 <Routes>

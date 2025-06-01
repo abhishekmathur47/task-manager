@@ -17,7 +17,6 @@ function TaskCard({ task, onEdit, onDelete }) {
             <p className="task-description">{task.description || 'No description provided.'}</p>
             <div className="task-details">
                 <span>Due: {new Date(task.dueDate).toLocaleDateString()}</span>
-                <span className={`task-status-badge ${statusClass}`}>{task.status}</span>
             </div>
 
         </div>

@@ -3,9 +3,9 @@
 .filter-sort-container {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1rem;
     justify-content: flex-end; /* Align to the right */
     align-items: center;
+
 }
 
 @media (max-width: 600px) {
