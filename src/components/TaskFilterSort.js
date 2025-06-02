@@ -1,5 +1,5 @@
 import React from 'react';
-import './TaskFilterSort.css'; // Import TaskFilterSort specific CSS
+import './TaskFilterSort.css'; 
 
 function TaskFilterSort({ onFilterChange, onSortChange, currentFilter, currentSort }) {
     return (

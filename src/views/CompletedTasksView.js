@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useTasks } from '../context/TaskContext';
 import TaskList from '../components/TaskList';
 import TaskSummary from '../components/TaskSummary';
-import './CompletedTasksView.css'; // Import CompletedTasksView specific CSS
+import './CompletedTasksView.css';
 
 function CompletedTasksView() {
     const { tasks, editTask, deleteTask } = useTasks();

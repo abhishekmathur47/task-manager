@@ -3,7 +3,7 @@
 .filter-sort-container {
     display: flex;
     gap: 1rem;
-    justify-content: flex-end; /* Align to the right */
+    justify-content: flex-end;
     align-items: center;
 
 }

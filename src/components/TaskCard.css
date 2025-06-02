@@ -16,7 +16,6 @@
   transform: translateY(-3px);
 }
 
-/* Border colors based on status */
 .task-card.pending {
   background-color: #f9e9da;
 }
@@ -38,7 +37,7 @@
 .task-description {
   color: #666;
   font-size: 1rem;
-  flex-grow: 1; /* Allows description to take available space */
+  flex-grow: 1;
   margin-bottom: 1rem;
   word-break: break-word;
 }
@@ -58,7 +57,6 @@
   font-weight: bold;
 }
 
-/* Status badge colors */
 .task-status-badge.pending {
   background-color: #BB6A0E;
   color: white;

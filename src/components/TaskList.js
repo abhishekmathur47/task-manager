@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskCard from './TaskCard';
-import './TaskList.css'; // Import TaskList specific CSS
+import './TaskList.css';
 
 function TaskList({ tasks, onEdit, onDelete }) {
     if (tasks.length === 0) {

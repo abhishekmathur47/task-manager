@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-do
 import { TaskProvider } from './context/TaskContext';
 import Dashboard from './views/Dashboard';
 import CompletedTasksView from './views/CompletedTasksView';
-import './App.css'; // Import App specific CSS
+import './App.css';
 
 function App() {
     return (

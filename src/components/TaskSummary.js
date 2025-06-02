@@ -1,5 +1,5 @@
 import React from 'react';
-import './TaskSummary.css'; // Import TaskSummary specific CSS
+import './TaskSummary.css';
 
 function TaskSummary({ tasks }) {
     const pendingCount = tasks.filter(task => task.status === 'Pending').length;

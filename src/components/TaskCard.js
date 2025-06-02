@@ -1,8 +1,7 @@
 import React from 'react';
-import './TaskCard.css'; // Import TaskCard specific CSS
+import './TaskCard.css';
 
 function TaskCard({ task, onEdit, onDelete }) {
-    // Determine status class for styling
     const statusClass = task.status.toLowerCase().replace(' ', '-');
 
     return (
