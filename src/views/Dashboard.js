@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useTasks } from '../context/TaskContext';
 import TaskSummary from '../components/TaskSummary';
 import TaskFilterSort from '../components/TaskFilterSort';
@@ -71,79 +70,45 @@ function Dashboard() {
     };
   }, [filteredAndSortedTasks]);
 
-  const onDragEnd = (result) => {
-    const { source, destination, draggableId } = result;
-    if (!destination || destination.droppableId === source.droppableId) return;
-
-    const draggedTask = tasks.find(task => String(task.id) === draggableId);
-    if (draggedTask) {
-      editTask(draggedTask.id, { ...draggedTask, status: destination.droppableId });
-    }
-  };
-
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <div className="dashboard-container">
-        <TaskSummary tasks={tasks} />
-        <div className="filter-section">
-          <TaskFilterSort
-            onFilterChange={setFilterStatus}
-            onSortChange={setSortOrder}
-            currentFilter={filterStatus}
-            currentSort={sortOrder}
-          />
-          <button className="add-task-button" onClick={openAddModal}>+ Add New Task</button>
-        </div>
-
-        <div className="kanban-board">
-          {STATUS_COLUMNS.map(status => (
-            <Droppable droppableId={status} key={status}>
-              {(provided) => (
-                <div
-                  className="kanban-column"
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                >
-                  <h3 style={{ borderBottom: '1px solid #D9D9D9', paddingBottom: '1.3rem' }}>{status}</h3>
-                  {groupedTasks[status].map((task, index) => (
-                    <Draggable
-                      key={task.id}
-                      draggableId={String(task.id)} // Force string
-                      index={index}
-                    >
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                        >
-                          <TaskCard
-                            task={task}
-                            onEdit={() => openEditModal(task)}
-                            onDelete={() => handleDeleteTask(task.id)}
-                          />
-                        </div>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          ))}
-        </div>
-
-        {isModalOpen && (
-          <Modal isOpen={isModalOpen} onClose={closeModal}>
-            <TaskForm
-              initialTask={editingTask}
-              onSubmit={editingTask ? handleEditTask : handleAddTask}
-              onCancel={closeModal}
-            />
-          </Modal>
-        )}
+    <div className="dashboard-container">
+      <TaskSummary tasks={tasks} />
+      <div className="filter-section">
+        <TaskFilterSort
+          onFilterChange={setFilterStatus}
+          onSortChange={setSortOrder}
+          currentFilter={filterStatus}
+          currentSort={sortOrder}
+        />
+        <button className="add-task-button" onClick={openAddModal}>+ Add New Task</button>
       </div>
-    </DragDropContext>
+
+      <div className="kanban-board">
+        {STATUS_COLUMNS.map(status => (
+          <div className="kanban-column" key={status}>
+            <h3 style={{ borderBottom: '1px solid #D9D9D9', paddingBottom: '1.3rem' }}>{status}</h3>
+            {groupedTasks[status].map((task) => (
+              <TaskCard
+                key={task.id}
+                task={task}
+                onEdit={() => openEditModal(task)}
+                onDelete={() => handleDeleteTask(task.id)}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+          <TaskForm
+            initialTask={editingTask}
+            onSubmit={editingTask ? handleEditTask : handleAddTask}
+            onCancel={closeModal}
+          />
+        </Modal>
+      )}
+    </div>
   );
 }
 
