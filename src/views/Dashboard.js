@@ -4,6 +4,7 @@ import TaskSummary from '../components/TaskSummary';
 import TaskFilterSort from '../components/TaskFilterSort';
 import TaskCard from '../components/TaskCard';
 import TaskForm from '../components/TaskForm';
+import TaskSearch from '../components/TaskSearch';
 import Modal from '../components/Modal';
 import './Dashboard.css';
 
@@ -15,6 +16,7 @@ function Dashboard() {
   const [sortOrder, setSortOrder] = useState('asc');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingTask, setEditingTask] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleAddTask = (newTask) => {
     addTask(newTask);
@@ -53,6 +55,10 @@ function Dashboard() {
       currentTasks = currentTasks.filter(task => task.status === filterStatus);
     }
 
+    if (searchQuery ){
+      currentTasks  = currentTasks.filter(task => task.title.toLowerCase().includes(searchQuery.toLowerCase()));
+    }
+
     currentTasks.sort((a, b) => {
       const dateA = new Date(a.dueDate);
       const dateB = new Date(b.dueDate);
@@ -60,7 +66,7 @@ function Dashboard() {
     });
 
     return currentTasks;
-  }, [tasks, filterStatus, sortOrder]);
+  }, [tasks, filterStatus, sortOrder, searchQuery]);
 
   const groupedTasks = useMemo(() => {
     return {
@@ -73,6 +79,7 @@ function Dashboard() {
   return (
     <div className="dashboard-container">
       <TaskSummary tasks={tasks} />
+      <TaskSearch onSearch={setSearchQuery} />
       <div className="filter-section">
         <TaskFilterSort
           onFilterChange={setFilterStatus}
